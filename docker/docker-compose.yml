@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: tu_usuario
+      POSTGRES_PASSWORD: tu_password
+      POSTGRES_DB: tu_base_de_datos
+    volumes:
+      - ./data_base:/var/lib/postgresql/data # carpeta donde se persistirá la bd de postgres que levantes en local
+      - ./init-scripts:/docker-entrypoint-initdb.d # carpeta donde se guardarán los scripts de inicialización de la bd
+
+    ports:
+      - "5432:5432"
+    restart: always
+
+  app:
+    build: ../
+    container_name: futsalBackEnd
+    ports:
+      - "80:8082" # cambiar el puerto 80 por otro si ya está en uso
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tu_base_de_datos # si tienes una local, cambiar esta url y las credenciales
+      #SPRING_DATASOURCE_USERNAME: tu_usuario
+      #SPRING_DATASOURCE_PASSWORD: tu_password
