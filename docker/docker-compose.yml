@@ -26,3 +26,15 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tu_base_de_datos # si tienes una local, cambiar esta url y las credenciales
       #SPRING_DATASOURCE_USERNAME: tu_usuario
       #SPRING_DATASOURCE_PASSWORD: tu_password
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dev@dev.dev
+      PGADMIN_DEFAULT_PASSWORD: dev
+    ports:
+      - "8085:80"    # puerto 8085 para acceder a pgadmin
+    depends_on:
+      - db
