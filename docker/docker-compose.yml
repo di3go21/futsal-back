@@ -26,6 +26,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tu_base_de_datos # si tienes una local, cambiar esta url y las credenciales
       #SPRING_DATASOURCE_USERNAME: tu_usuario
       #SPRING_DATASOURCE_PASSWORD: tu_password
+    depends_on:
+      - db
 
   pgadmin:
     image: dpage/pgadmin4:latest
