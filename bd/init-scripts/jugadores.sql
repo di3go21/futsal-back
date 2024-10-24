@@ -6,7 +6,6 @@ create table jugador
     apodo            varchar(255),
     fecha_nacimiento date,
     urlFoto          varchar(600),
-
     created          timestamp(6),
     primary key (id)
 );
@@ -26,7 +25,7 @@ values (nextval('jugador_seq'), 'Aitor', 1, '1990-01-01', null, current_timestam
        (nextval('jugador_seq'), 'Galin', 2,'1990-01-01', null, current_timestamp),
        (nextval('jugador_seq'), 'Borja', 15,'1990-01-01', null, current_timestamp),
        (nextval('jugador_seq'), 'Dagon', 28,'1990-01-01', null, current_timestamp),
-       (nextval('jugador_seq'), 'Aparicio', 99,'1990-01-01', null, current_timestamp),
+       (nextval('jugador_seq'), 'Aparicio', 22,'2000-05-08', null, current_timestamp),
        (nextval('jugador_seq'), 'Alf', 8,'1990-01-01', null, current_timestamp),
        (nextval('jugador_seq'), 'Cuñao', 98,'1990-01-01', null, current_timestamp),
        (nextval('jugador_seq'), 'Blazquez', 13,'1990-01-01', null, current_timestamp),
